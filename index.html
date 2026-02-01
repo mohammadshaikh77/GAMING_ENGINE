@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt-Driven 2D Game Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Prompt-Driven 2D Game Generator</h1>
+      <p>Describe any 2D game. The engine generates a playable game instantly.</p>
+    </div>
+    <button id="restartBtn" class="secondary">Restart Game</button>
+  </header>
 
+  <main class="layout">
+    <section class="panel">
+      <h2>Game Prompt</h2>
+      <textarea id="promptInput" rows="8" placeholder="Example: A neon endless runner where a robot dodges drones, collects energy, and the speed increases every 15 seconds."></textarea>
+      <div class="actions">
+        <button id="generateBtn">Generate Game</button>
+        <button id="exampleBtn" class="secondary">Load Example</button>
+      </div>
+      <div class="status" id="statusMsg"></div>
+
+      <h3>Optimized Prompt</h3>
+      <pre id="optimizedPrompt" class="code-block"></pre>
+
+      <h3>Structured Game Spec (JSON)</h3>
+      <pre id="specOutput" class="code-block"></pre>
+    </section>
+
+    <section class="panel">
+      <h2>Live Game Preview</h2>
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="960" height="540"></canvas>
+      </div>
+      <div class="hud" id="hud"></div>
+      <div class="help">
+        <h3>Controls</h3>
+        <ul>
+          <li><strong>Move:</strong> Arrow Keys or WASD</li>
+          <li><strong>Jump (platformer):</strong> Space / W / Up</li>
+          <li><strong>Shoot (shooter):</strong> Space</li>
+          <li><strong>Restart:</strong> R</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Generated games run entirely in HTML5 Canvas with vanilla JavaScript.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
